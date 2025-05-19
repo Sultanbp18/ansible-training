@@ -1,0 +1,14 @@
+---
+- name: Install and start Nginx on web server
+  hosts: web
+  tasks:
+    - name: Install Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+    - name: Ensure nginx is running
+      service:
+        name: nginx
+        state: started
+        enabled: yes

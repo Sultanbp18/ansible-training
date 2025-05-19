@@ -1,0 +1,26 @@
+---
+- name: Configure UFW Firewall
+  hosts: all
+  become: true
+  tasks:
+    - name: Install ufw if not present
+      apt:
+        name: ufw
+        state: present
+        update_cache: yes
+
+    - name: Allow SSH
+      ufw:
+        rule: allow
+        name: OpenSSH
+
+    - name: Allow HTTP
+      ufw:
+        rule: allow
+        port: 80
+        proto: tcp
+
+    - name: Enable UFW
+      ufw:
+        state: enabled
+        policy: deny

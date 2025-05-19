@@ -52,4 +52,4 @@ ansible-playbook -i ../inventory/hosts.ini ../playbooks/05-status-check.yml
 - Konfigurasi firewall UFW
 - Pemeriksaan status layanan secara otomatis
 
----# ansible-training
+---

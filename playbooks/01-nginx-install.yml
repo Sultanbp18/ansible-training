@@ -1,6 +1,7 @@
 ---
 - name: Install and start Nginx on web server
   hosts: web
+  become: true
   tasks:
     - name: Install Nginx
       apt:

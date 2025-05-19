@@ -17,7 +17,7 @@ project/
 │   ├── 04-firewall-config.yml
 │   └── 05-status-check.yml
 ├── files/
-│   └── username.pub           # Public key untuk user baru
+│   └── username.pub           # Public key untuk user baru (pastikan file sudah ada)
 └── vagrant/
     └── Vagrantfile            # Konfigurasi VM lokal
 ```

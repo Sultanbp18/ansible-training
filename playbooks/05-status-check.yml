@@ -7,7 +7,7 @@
       shell: systemctl is-active nginx
       register: nginx_status
       when: "'web' in group_names"
-      ignore_errors: yes
+      ignore_errors: true
 
     - name: Display Nginx status
       debug:
@@ -18,7 +18,7 @@
       shell: systemctl is-active docker
       register: docker_status
       when: "'docker' in group_names"
-      ignore_errors: yes
+      ignore_errors: true
 
     - name: Display Docker status
       debug:

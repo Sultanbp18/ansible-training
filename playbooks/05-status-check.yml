@@ -7,20 +7,20 @@
       shell: systemctl is-active nginx
       register: nginx_status
       when: "'web' in group_names"
-      ignore_errors: true
+      ignore_errors: yes
 
     - name: Display Nginx status
       debug:
-        msg: "Nginx status: {{ nginx_status.stdout }}"
+        msg: "Nginx status: {{ nginx_status.stdout | default('not available') }}"
       when: nginx_status is defined
 
     - name: Check if Docker is active (only on docker group)
       shell: systemctl is-active docker
       register: docker_status
       when: "'docker' in group_names"
-      ignore_errors: true
+      ignore_errors: yes
 
     - name: Display Docker status
       debug:
-        msg: "Docker status: {{ docker_status.stdout }}"
+        msg: "Docker status: {{ docker_status.stdout | default('not available') }}"
       when: docker_status is defined
